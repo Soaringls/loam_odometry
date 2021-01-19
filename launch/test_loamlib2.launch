@@ -1,0 +1,5 @@
+<launch>
+ 
+    <node pkg="loam_odometry" type="testlib2" name="testlib2" output="screen"  />
+
+</launch>

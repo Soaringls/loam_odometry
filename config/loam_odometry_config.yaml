@@ -1,0 +1,23 @@
+lidar:
+  num_vertical_scans: 16
+  num_horizontal_scans: 1800
+  ground_scan_index: 7
+  vertical_angle_bottom: -15          # degrees
+  vertical_angle_top: 15              # degrees
+  sensor_mount_angle: 0               # degrees
+  scan_period: 0.1                    # seconds
+
+featureExtraction:
+  edge_threshold: 0.1
+  surf_threshold: 0.1
+  nearest_feature_search_distance: 5
+
+segmentation:
+  segment_cluster_num: 120
+  segment_valid_point_num: 5
+  segment_valid_line_num: 4
+  surf_segmentation_angle_threshold: 10.0
+  segment_theta: 60.0                 # degrees, decrease this value may improve accuracy
+
+
+
