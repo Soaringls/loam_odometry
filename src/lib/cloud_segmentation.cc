@@ -368,7 +368,7 @@ void CloudSegmentation::divideSurfEdge() {
   }
 
   auto pts = laser_cloud->points;
-  for (std::size_t i = 0; i < cloud_size - 5; ++i) {
+  for (std::size_t i = 5; i < cloud_size - 5; ++i) {
     float diff_x = pts[i - 5].x + pts[i - 4].x + pts[i - 3].x + pts[i - 2].x +
                    pts[i - 1].x - 10 * pts[i].x + pts[i + 1].x + pts[i + 2].x +
                    pts[i + 3].x + pts[i + 4].x + pts[i + 5].x;
@@ -391,6 +391,7 @@ void CloudSegmentation::divideSurfEdge() {
     if (cur_diff_idx < 6) continue;
     PointCloudPtr surf_cloud_lessflat_scan(new pcl::PointCloud<PointT>());
     for (std::size_t j = 0; j < 6; ++j) {
+      //每个scanline的点划分为6个片段，sp和ep为当前片段点的起始索引
       int sp = scan_start_idx[i] + cur_diff_idx * j / 6;
       int ep = scan_start_idx[i] + cur_diff_idx * (j + 1) / 6 - 1;
       std::sort(cloud_sort_idx_.begin() + sp, cloud_sort_idx_.begin() + ep + 1,

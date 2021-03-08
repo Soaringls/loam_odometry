@@ -491,6 +491,7 @@ void LidarRefination::calculateTransformationCorner(
                                        neighbor_pts_dist);
 
     if (neighbor_pts_dist[4] < 1.0) {
+      // PCA分析
       std::vector<Eigen::Vector3d> nearCorners;
       Eigen::Vector3d center(0, 0, 0);
       for (int j = 0; j < 5; j++) {
